@@ -1,4 +1,4 @@
-import { DEPARTAMENTOS } from "./components/departamento.js";
+import { DEPARTAMENTOS } from "./components/departamento_component.js";
 import { CHEKLIST_PAGE } from "./routes/routes.js";
 const DEPARTAMENTOS_MAIN = document.querySelector("#departamentos");
 
