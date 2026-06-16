@@ -1,0 +1,20 @@
+import { DEPARTAMENTOS } from "./components/departamento.js";
+import { CHEKLIST_PAGE } from "./routes/routes.js";
+const DEPARTAMENTOS_MAIN = document.querySelector("#departamentos");
+
+document.addEventListener("DOMContentLoaded", () => {
+    for(let departamento of DEPARTAMENTOS) {
+        const BUTTON = document.createElement("button");
+        BUTTON.innerText = departamento;
+        BUTTON.id = departamento;
+        DEPARTAMENTOS_MAIN.appendChild(BUTTON);
+    };
+});
+
+document.addEventListener("click", (e) => {
+    let el = e.target;
+
+    if(DEPARTAMENTOS.includes(el.id)){
+        window.location.href = `${CHEKLIST_PAGE}?content=${el.id}`;
+    }
+})

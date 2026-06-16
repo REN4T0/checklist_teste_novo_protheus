@@ -1,0 +1,11 @@
+export const DEPARTAMENTOS = [
+    "COMPRAS",
+    "FATURAMENTO",
+    "CONTABILIDADE",
+    "LIVROS FISCAIS",
+    "FINANCEIRO - CP",
+    "FINANCEIRO - CR",
+    "ESTOQUE",
+    "PCP - MGGOLD",
+    "PCP - MAGNUM"
+];
