@@ -25,6 +25,41 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    text-transform: uppercase;
+}
+
+button#login {
+    width: 30%;
+}
+
+.modal-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: #00000063;
+}
+
+.modal {
+    padding: 5%;
+    width: 35%;
+    height: 35%;
+    background-color: #fff;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 button:hover {

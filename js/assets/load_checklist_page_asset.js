@@ -1,20 +1,21 @@
+import { getAtividades } from "../services/get_atividades.js";
 import { CHECKLISTS } from "../components/checklists_component.js";
 const TABLE_BODY = document.querySelector("tbody");
 const TABLE_DATA_VALUES = [];
 
 function loadChecklistTable(list) {
-    console.log(list);
-
     for(let item of list) {
         const TABLE_ROW = document.createElement("tr");
 
         const CHECKBOX = document.createElement("input");
         CHECKBOX.type = "checkbox";
+        CHECKBOX.id = item.id;
 
         const INPUT_TASK = document.createElement("input");
         INPUT_TASK.type = "text";
         INPUT_TASK.readOnly = true;
-        INPUT_TASK.value = item;
+        INPUT_TASK.value = item.atividade;
+        INPUT_TASK.id = `task${item.id}`;
 
         TABLE_DATA_VALUES.push(CHECKBOX);
         TABLE_DATA_VALUES.push(INPUT_TASK);
@@ -30,41 +31,50 @@ function loadChecklistTable(list) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+async function findDepartamento(){
     const URL_PARAMS = new URLSearchParams(window.location.search);
     const SELECTED_CONTENT = URL_PARAMS.get('content');
-    console.log(SELECTED_CONTENT);
 
     switch(SELECTED_CONTENT){
-        case "COMPRAS":
-            loadChecklistTable(CHECKLISTS.compras)
+        case "1":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "FATURAMENTO":
-            loadChecklistTable(CHECKLISTS.faturamento);
+        case "2":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "CONTABILIDADE":
-            loadChecklistTable(CHECKLISTS.contabilidade);
+        case "3":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "LIVROS FISCAIS":
-            loadChecklistTable(CHECKLISTS.livros_fiscais);
+        case "4":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "FINANCEIRO - CP":
-            loadChecklistTable(CHECKLISTS.financeiro);
+        case "5":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "FINANCEIRO - CR":
-            loadChecklistTable(CHECKLISTS.contas_receber);
+        case "6":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "ESTOQUE":
-            loadChecklistTable(CHECKLISTS.contas_pagar);
+        case "7":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "PCP - MGGOLD":
-            loadChecklistTable(CHECKLISTS.pcp_mggold);
+        case "8":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
-        case "PCP - MAGNUM":
-            loadChecklistTable(CHECKLISTS.pcp_magnum);
+        case "9":
+            loadChecklistTable(await getAtividades(SELECTED_CONTENT));
             break;
         default:
             console.log("Essa checklist não existe");
             break;
     }
-});
+};
+
+document.addEventListener("click", (e) => {
+    let el = e.target;
+    console.log(el.id);
+
+    if(el.id === "login"){
+        findDepartamento();
+        document.querySelector("div.modal-background").remove();
+    }
+})

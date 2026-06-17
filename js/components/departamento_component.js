@@ -1,4 +1,4 @@
-export const DEPARTAMENTOS = [
+export const DEPARTAMENTOS_OLD = [
     "COMPRAS",
     "FATURAMENTO",
     "CONTABILIDADE",
