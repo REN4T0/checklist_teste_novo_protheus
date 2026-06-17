@@ -5,6 +5,7 @@ const DEPARTAMENTOS_MAIN = document.querySelector("#departamentos");
 let departamentos;
 
 document.addEventListener("DOMContentLoaded", async () => {
+    localStorage.clear();
     departamentos = await getDepartamentos();
 
     for(let departamento of departamentos) {
