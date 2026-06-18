@@ -7,6 +7,8 @@ const TABLE_BODY = document.querySelector("tbody");
 const TABLE_DATA_VALUES = [];
 
 function loadChecklistTable(list) {
+    console.log(list);
+
     for (let item of list) {
         const TABLE_ROW = document.createElement("tr");
 
@@ -14,6 +16,8 @@ function loadChecklistTable(list) {
         CHECKBOX.type = "checkbox";
         CHECKBOX.id = item.id;
         CHECKBOX.classList.add("checkbox");
+
+        if(item.concluido) CHECKBOX.checked = true;
 
         const INPUT_TASK = document.createElement("input");
         INPUT_TASK.type = "text";
@@ -41,6 +45,7 @@ const STANDARD_MSG = () => console.log("O usuário inserido não tem permissão 
 async function findDepartamento(usuario, departamentoID) {
     // const URL_PARAMS = new URLSearchParams(window.location.search);
     // const SELECTED_CONTENT = URL_PARAMS.get('content');
+ 
     let currentUser;
     switch (departamentoID) {
         case "1":
@@ -48,7 +53,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -59,7 +64,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -69,7 +74,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
             
@@ -79,7 +84,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -89,7 +94,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -99,7 +104,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -109,7 +114,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -119,7 +124,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -129,7 +134,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID));
+                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -140,7 +145,7 @@ async function findDepartamento(usuario, departamentoID) {
     }
 };
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
     let el = e.target;
 
     if (el.id === "login") {
@@ -157,7 +162,7 @@ document.addEventListener("click", (e) => {
             task_id: el.id
         };
 
-        postAtividadeFeita(TASK_INFO);
+        console.log(await postAtividadeFeita(TASK_INFO));
     }
 });
 
