@@ -8,8 +8,6 @@ const TABLE_BODY = document.querySelector("tbody");
 const TABLE_DATA_VALUES = [];
 
 function loadChecklistTable(list) {
-    console.log(list);
-
     for (let item of list) {
         const TABLE_ROW = document.createElement("tr");
 
@@ -44,15 +42,11 @@ const CLOSE_MODAL = () => document.querySelector("div.modal-background").remove(
 const STANDARD_MSG = () => console.log("O usuário inserido não tem permissão para acessar essa lista de atividades.");
 
 async function findDepartamento(usuario, departamentoID) {
-    // const URL_PARAMS = new URLSearchParams(window.location.search);
-    // const SELECTED_CONTENT = URL_PARAMS.get('content');
- 
     let currentUser;
     switch (departamentoID) {
         case "1":
             if (VALID_USERS.compras.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -63,7 +57,6 @@ async function findDepartamento(usuario, departamentoID) {
             
             if (VALID_USERS.faturamento.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -73,7 +66,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "3":
             if (VALID_USERS.contabilidade.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -83,7 +75,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "4":
             if (VALID_USERS.livros_fiscais.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -93,7 +84,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "5":
             if (VALID_USERS.financeiro.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -103,7 +93,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "6":
             if (VALID_USERS.financeiro.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -113,7 +102,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "7":
             if (VALID_USERS.estoque.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -123,7 +111,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "8":
             if (VALID_USERS.pcpmgg.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
@@ -133,7 +120,6 @@ async function findDepartamento(usuario, departamentoID) {
         case "9":
             if (VALID_USERS.pcpmgn.includes(usuario)) {
                 currentUser = await postUsuario(usuario, departamentoID);
-                console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
                 loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();

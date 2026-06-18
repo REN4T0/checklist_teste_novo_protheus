@@ -1,6 +1,7 @@
 import { getDepartamentos } from "./services/get_departamentos.js";
 import { CHEKLIST_PAGE } from "./routes/routes.js";
 import { APItest } from "./services/test.js";
+
 const DEPARTAMENTOS_MAIN = document.querySelector("#departamentos");
 let departamentos;
 

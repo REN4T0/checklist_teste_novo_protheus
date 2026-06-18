@@ -1,5 +1,4 @@
 export async function postAtividadeFeita(taskInfo){
-     console.log(taskInfo);
     const REQ = await fetch("http://172.16.11.12/backend/post_atividade_feita.php", {
         method: "POST",
         headers: {

@@ -1,0 +1,13 @@
+.toast {
+    width: 30vw;
+    height: 15vw;
+    background-color: #eeeeee;
+
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    /* right: -30vw; */
+
+    border-radius: 10px;
+    box-shadow: 2px 5px 10px 0rem #000000A1;
+}
