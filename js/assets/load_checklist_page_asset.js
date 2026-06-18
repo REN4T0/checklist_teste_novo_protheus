@@ -1,8 +1,9 @@
 import { getAtividades } from "../services/get_atividades.js";
 import { postUsuario } from "../services/post_usuario_service.js";
 import { postAtividadeFeita } from "../services/post_atividade_feita_service.js";
-import { CHECKLISTS } from "../components/checklists_component.js";
+// import { CHECKLISTS } from "../components/checklists_component.js";
 import { VALID_USERS } from "../components/valid_users_component.js";
+import { HOME } from "../routes/routes.js";
 const TABLE_BODY = document.querySelector("tbody");
 const TABLE_DATA_VALUES = [];
 
@@ -53,7 +54,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -64,7 +65,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -74,7 +75,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
             
@@ -84,7 +85,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -94,7 +95,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -104,7 +105,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -114,7 +115,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -124,7 +125,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -134,7 +135,7 @@ async function findDepartamento(usuario, departamentoID) {
                 currentUser = await postUsuario(usuario, departamentoID);
                 console.log(currentUser);
                 localStorage.setItem("current_user_id", currentUser.id_usuario);
-                loadChecklistTable(await getAtividades(departamentoID, currentUser.id_usuario));
+                loadChecklistTable(await getAtividades(currentUser.id_usuario));
                 CLOSE_MODAL();
             } else { STANDARD_MSG(); }
 
@@ -164,6 +165,8 @@ document.addEventListener("click", async (e) => {
 
         console.log(await postAtividadeFeita(TASK_INFO));
     }
+
+    if(el.id === "sair") window.location.href = HOME;
 });
 
 document.addEventListener("DOMContentLoaded", () => {
