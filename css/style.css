@@ -35,7 +35,7 @@ a {
     gap: 5px;
 }
 
-img {
+img#sair {
     width: 2rem;
     border-radius: 5px;
     background-color: rgb(230, 168, 0);

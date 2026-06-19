@@ -1,13 +1,22 @@
 .toast {
     width: 30vw;
     height: 15vw;
-    background-color: #eeeeee;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    
     position: absolute;
     top: 2vw;
-    right: 2vw;
-    /* right: -30vw; */
-
+    right: -30vw;
+    
     border-radius: 10px;
+    background-color: #eeeeee;
     box-shadow: 2px 5px 10px 0rem #000000A1;
+    transition: ease 0.5s;
+}
+
+.toast img {
+    width: 2rem;
 }
